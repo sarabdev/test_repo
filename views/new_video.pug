@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Share New Video
+    link(rel="stylesheet", href="/css/styles.css")
+  body
+    .container
+      h1 Share New Video
+      if error
+        p.error #{error}
+      if query && query.success
+        p.success Video added successfully!
+      form(method="post", action="/video/new")
+        input(type="text", name="title", placeholder="Video Title", required=true, value=(title || ''))
+        input(type="url", name="url", placeholder="Video URL", required=true, value=(url || ''))
+        button(type="submit") Add Video

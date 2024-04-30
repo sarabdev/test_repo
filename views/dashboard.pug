@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Video Dashboard
+    link(rel='stylesheet', href='/css/styles.css')
+  body
+    .dashboard-container
+      h1 Dashboard
+      p Welcome, #{name}!
+      a(href="/video/new_video") Share a New Video
+
+      nav.dashboard-nav
+        a(href="/video/dashboard/all") View All Videos
+        a(href="/video/dashboard/mine") View My Videos
+      
+      ul.videos-list
+        each video in videos
+          li.video-item
+            h2.video-title= video.title
+            iframe.video-frame(width='100%', src=video.url)
